@@ -1,0 +1,44 @@
+.layout-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+	background-color: #1f2327;
+	color: #fff;
+
+	.layout-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+
+		.layout-main {
+			flex: 1;
+			padding: 24px;
+			overflow-y: auto;
+				position: relative;
+
+		}
+	}
+}
+
+@media screen and (min-width: 320px) {
+	.layout-wrapper {
+		display: grid;
+		grid-template-columns: auto 1fr;
+
+		.layout-sidebar {
+			display: none;
+		}
+	}
+}
+@media screen and (min-width: 576px) and (max-width: 767px) {
+	.layout-wrapper {
+		display: grid;
+		grid-template-columns: auto 1fr;
+
+		.layout-sidebar {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,9 @@
+@import "../styles/variables.scss";
+
+body {
+  background-color: $bg-dark;
+  color: $text-light;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
