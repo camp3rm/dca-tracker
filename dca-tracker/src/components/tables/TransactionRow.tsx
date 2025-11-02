@@ -1,25 +1,54 @@
-import tackerData from '@/lib/api';
+import usePortfolioData from '@/lib/api';
 import React from 'react';
+type Transaction = {
+	date: string;
+	coin: string;
+	invested: number;
+	amount: number;
+	buyPrice: number;
+	currentPrice: number;
+	avgEntry: number;
+	currentValue: number;
+	profit: number;
+	roi: number;
+	targets: { x3: number; x5: number; x10: number };
+	risks: { x3: string; x5: string; x10: string };
+};
+export default function TransactionRow({ item }: { item: Transaction }) {
+	const data = usePortfolioData();
 
-export default function TransactionRow() {
-	const data = tackerData();
-
-	console.log('TransactionRow data:', data);
 	return (
-		<div className="transaction-row" style={{width: '100%', height: '100%'}}>
-			<span className='col-date'></span>
-			<span className='col-symbol' style={{color: 'red'}}>{coin}</span>
-			<span className='col-invested'></span>
-			<span className='col-amount'></span>
-			<span className='col-buy__price'></span>
-			<span className='col-current__price'>{currentPriceUSD}</span>
-			<span className='col-average-entry'></span>
-			<span className='col-current-value'></span>
-			<span className='col-profit'></span>
-			<span className='col-roi'></span>
-			<span className='col-target__3x'></span>
-			<span className='col-target__5x'></span>
-			<span className='col-target__10x'></span>
-		</div>
+		<tr className="body__row">
+			<td className="body__item body__item--date">{item.date}</td>
+			<td className="body__item body__item--symbol">{item.coin}</td>
+			<td className="body__item body__item--invested">{item.invested}</td>
+			<td className="body__item body__item--amount">{item.amount}</td>
+			<td className="body__item body__item--buy__price">
+				{/* {item.buyPrice.toFixed(2)} */}
+				{item.buyPrice}
+			</td>
+			<td className="body__item body__item--current__price">
+				{/* {item.currentPrice.toFixed(2)} */}
+				{item.currentPrice}
+			</td>
+			<td className="body__item body__item--average__entry">
+				{/* {item.avgEntry.toFixed(2)} */}
+				{item.avgEntry}
+			</td>
+			<td className="body__item body__item--current__value">
+				{/* {item.currentValue.toFixed(2)} */}
+				{item.currentValue}
+			</td>
+			<td className="body__item body__item--profit">{item.profit}</td>
+			<td
+				className={`body__item body__item--roi ${
+					item.roi >= 0 ? 'body__item--positive' : 'body__item--negative'
+				}`}>
+				{item.roi}%
+			</td>
+			<td className="body__item body__item--target__3x">{item.targets.x3}</td>
+			<td className="body__item body__item--target__5x">{item.targets.x5}</td>
+			<td className="body__item body__item--target__10x">{item.targets.x10}</td>
+		</tr>
 	);
 }

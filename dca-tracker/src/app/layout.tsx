@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import "@/styles/globals.scss";
+import '@/styles/datapicker.scss';
 import "@/styles/layout.scss";
 import { ToggleMenu } from '@/components/ui/toggleMenu/toggleMenu';
 import Header from "@/components/layout/header/Header";

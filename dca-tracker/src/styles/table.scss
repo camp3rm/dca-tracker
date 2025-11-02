@@ -1,0 +1,107 @@
+.dca-table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+	.header {
+		position: sticky;
+		top: 0;
+		background: #111;
+		color: #fff;
+		&__row {
+
+			background-color: #1f2327;
+		}
+		&__item {
+			align-items: center;
+			height: 40px;
+			border: 1px solid #ccc;
+			padding: 5px 10px;
+			font-weight: 500;
+			&--date {
+				justify-content: flex-end;
+			}
+			&--symbol {
+				justify-content: flex-start;
+			}
+			&--invested {
+				justify-content: flex-end;
+			}
+			&--amount {
+				justify-content: flex-end;
+			}
+			&--buy__price {
+				justify-content: center;
+			}
+			&--current__value {
+				justify-content: center;
+			}
+			&--average__entry {
+				justify-content: flex-end;
+			}
+			&--current__value {
+				justify-content: center;
+				font-weight: 600;
+			}
+			&--profit {
+				justify-content: center;
+			}
+			&--roi {
+				justify-content: center;
+			}
+			&--target__3x {
+				justify-content: center;
+			}
+			&--target__5x {
+				justify-content: center;
+			}
+			&--target__10x {
+				justify-content: center;
+			}
+		}
+	}
+	.body {
+		&__row {
+			background-color: #1f2327;
+		}
+		&__item {
+			align-items: center;
+			height: 40px;
+			border: 1px solid #ccc;
+			padding: 5px 10px;
+			font-weight: 500;
+			&:hover {
+				background: #1b1b1b;
+				cursor: pointer;
+			}
+
+			&--date,
+			&--invested,
+			&--amount {
+				justify-content: flex-end;
+			}
+			&--symbol {
+				justify-content: flex-start;
+			}
+			&--buy__price,
+			&--current__price,
+			&--average__entry,
+			&--current__value,
+			&--profit,
+			&--target__3x,
+			&--target__5x,
+			&--target__10x {
+				justify-content: center;
+			}
+			&--roi {
+				justify-content: center;
+			}
+			&--positive {
+				background-color: #16c784;
+			}
+			&--negative {
+				background-color: #ea3943;
+			}
+		}
+	}
+}

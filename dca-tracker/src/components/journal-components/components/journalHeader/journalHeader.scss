@@ -1,0 +1,29 @@
+.journal-header {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	
+	&__title {
+	height: auto;
+	padding: 5px 0px;
+	margin-left: 25px;
+	}
+
+	&__button {
+		// height: 40px;
+		// width: 130px;
+		border: none;
+		outline: none;
+		border-radius: 5px;
+		background-color: rgb(95, 145, 253);
+		color: white;
+		padding: 15px 25px;
+		margin-right: 25px;
+
+		&:hover {
+			background-color: #005bb5;
+		}
+	}
+}
