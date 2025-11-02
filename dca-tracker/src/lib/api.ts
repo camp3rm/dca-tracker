@@ -12,10 +12,14 @@ export default function usePortfolioData() {
 
 		const fetchTickerData = async () => {
 			try {
-				const response = await fetch(`https://api.binance.com/api/v3/ticker?symbol=${symbol}`);
+				const response = await fetch(
+					`https://api.binance.com/api/v3/ticker/price?symbol=${symbol}`
+				);
 				const data = await response.json();
 				console.log(data);
-		
+				setTrackerData([
+					{ coin: data.symbol, currentPriceUSD: parseFloat(data.price) },
+				]);
 			} catch (error) {
 				console.error('Error fetching data:', error);
 			}
