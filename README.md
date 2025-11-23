@@ -51,13 +51,15 @@ Smart calculator that determines how many tokens to sell to:
 
 ## 💡 Tech Stack
 
-| Technology | Purpose |
-|-------------|----------|
-| **Next.js 15 (App Router)** | Modern React architecture with SSR / ISR |
-| **TypeScript** | Strong typing and reliability |
-| **SCSS Modules** | Modular styling without Tailwind |
-| **Binance API** | Real-time crypto price data |
-| **Recharts** | Data visualization and analytics |
+| Technology |
+|-------------|
+| **Next.js 15 (App Router)** |
+| **TypeScript** |
+| **SCSS Modules** |
+| **Binance API** |
+| **Recharts** |
+| **React Hooks Form |
+| **Redux/Toolkit |
 
 ---
 
