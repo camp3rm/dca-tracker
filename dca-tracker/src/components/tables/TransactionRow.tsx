@@ -40,12 +40,7 @@ export default function TransactionRow({ item }: { item: Transaction }) {
 				{item.currentValue}
 			</td>
 			<td className="body__item body__item--profit">{item.profit}</td>
-			<td
-				className={`body__item body__item--roi ${
-					item.roi >= 0 ? 'body__item--positive' : 'body__item--negative'
-				}`}>
-				{item.roi}%
-			</td>
+			<td className="body__item body__item--roi">{item.roi}%</td>
 			<td className="body__item body__item--target__3x">{item.targets.x3}</td>
 			<td className="body__item body__item--target__5x">{item.targets.x5}</td>
 			<td className="body__item body__item--target__10x">{item.targets.x10}</td>

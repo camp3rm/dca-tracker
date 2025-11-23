@@ -7,6 +7,8 @@ import { ToggleMenu } from '@/components/ui/toggleMenu/toggleMenu';
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
 import { HeaderContext } from "@/hooks/useHeaderContext";
+import { Provider } from 'react-redux';
+import { store } from '@store/store';
 
 
 export default function RootLayout({
@@ -18,22 +20,21 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 const toggleMenu = () => setIsMenuOpen(prev => !prev);
   return (
-     
-    <html lang="en">
-      <HeaderContext.Provider value={{ isMenuOpen, toggleMenu }}>
-      <body className="layout-wrapper">  
-          <div className="layout-content">
-            <Header />
-            <main className="layout-main">{children}
-              {isMenuOpen && <ToggleMenu />}
-
-            </main>
-            <Footer />
-            
-          </div>
-      </body>
-      </HeaderContext.Provider>
-    </html>
-       
-  );
+		<Provider store={store}>
+			<html lang="en">
+				<HeaderContext.Provider value={{ isMenuOpen, toggleMenu }}>
+					<body className="layout-wrapper">
+						<div className="layout-content">
+							<Header />
+							<main className="layout-main">
+								{children}
+								{isMenuOpen && <ToggleMenu />}
+							</main>
+							<Footer />
+						</div>
+					</body>
+				</HeaderContext.Provider>
+			</html>
+		</Provider>
+	);
 }
