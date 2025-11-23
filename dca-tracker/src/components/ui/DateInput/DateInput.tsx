@@ -7,12 +7,11 @@ interface DateInputProps {
 }
 export default function DateInput({ selected, onChange }: DateInputProps) {
 	return (
-		<DatePicker 
-			selected={selected} 
+		<DatePicker
+			selected={selected}
 			onChange={onChange}
-			dateFormat={'dd/MM/yyyy'} 
-			className='custom-input' 
-			placeholderText='Select a date'
+			dateFormat={'dd/MM/yyyy'}
+			placeholderText="Select a date"
 		/>
-	)
+	);
 }

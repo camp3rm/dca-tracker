@@ -9,7 +9,6 @@
 		background: #111;
 		color: #fff;
 		&__row {
-
 			background-color: #1f2327;
 		}
 		&__item {
@@ -64,25 +63,24 @@
 		&__row {
 			background-color: #1f2327;
 		}
+
 		&__item {
 			align-items: center;
 			height: 40px;
 			border: 1px solid #ccc;
 			padding: 5px 10px;
 			font-weight: 500;
-			&:hover {
-				background: #1b1b1b;
-				cursor: pointer;
-			}
 
 			&--date,
 			&--invested,
 			&--amount {
 				justify-content: flex-end;
 			}
+
 			&--symbol {
 				justify-content: flex-start;
 			}
+
 			&--buy__price,
 			&--current__price,
 			&--average__entry,
@@ -93,15 +91,16 @@
 			&--target__10x {
 				justify-content: center;
 			}
+
 			&--roi {
 				justify-content: center;
 			}
-			&--positive {
-				background-color: #16c784;
-			}
-			&--negative {
-				background-color: #ea3943;
-			}
+												// &--positive {
+												// 	background-color: #16c784;
+												// }
+						
+												// &--negative {
+												// 	background-color: #ea3943;
 		}
 	}
 }
