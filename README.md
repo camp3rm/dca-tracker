@@ -58,8 +58,8 @@ Smart calculator that determines how many tokens to sell to:
 | **SCSS Modules** |
 | **Binance API** |
 | **Recharts** |
-| **React Hooks Form |
-| **Redux/Toolkit |
+| **React Hooks Form** |
+| **Redux/Toolkit** |
 
 ---
 
