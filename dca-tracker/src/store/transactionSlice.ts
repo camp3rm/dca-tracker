@@ -9,19 +9,19 @@ interface TransactionState {
 }
 
 interface TransactionsState {
-  transactions: TransactionState[];
+	transaction: TransactionState[];
 }
 
-const initialState: TransactionsState = { transactions: [] };
+const initialState: TransactionsState = { transaction: [] };
 
 const transactionSlice = createSlice({
-  name: 'transactions',
-  initialState,
-  reducers: {
-    setTransaction: (state, action: PayloadAction<TransactionState>) => {
-      state.transactions.push(action.payload);
-    },
-  },
+	name: 'transactions',
+	initialState,
+	reducers: {
+		setTransaction: (state, action: PayloadAction<TransactionState>) => {
+			state.transaction.push(action.payload);
+		},
+	},
 });
 
 export const { setTransaction } = transactionSlice.actions;

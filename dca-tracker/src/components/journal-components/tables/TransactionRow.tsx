@@ -1,6 +1,7 @@
 import usePortfolioData from '@/lib/api';
 import React from 'react';
 type Transaction = {
+	id: string;
 	date: string;
 	coin: string;
 	invested: number;

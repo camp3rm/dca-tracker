@@ -1,6 +1,6 @@
 'use client';
 import styles from './dca-journal.module.scss';
-import DcaTable from '@/components/tables/DcaTable';
+import DcaTable from '@/components/journal-components/tables/DcaTable';
 import JournalHeader from '@/components/journal-components/journalHeader/JournalHeader';
 import AddTransactionModal from '@/components/ui/modal/AddTransactionModal';
 import useModal from '@/components/ui/modal/useModal';
