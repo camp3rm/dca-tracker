@@ -1,7 +1,10 @@
-import WalletAnalytics from '@/components/analytics/WalletAnalytics';
+import AnalyticsLayout from '@/components/analytics/AnalyticsLayout';
 
-export default function page() {
+export default function Analytics() {
 	return (
-		<><WalletAnalytics /></>
-	)
+		<section className="page-analytics">
+			<h1>Portfolio Analytics</h1>
+			<AnalyticsLayout />
+		</section>
+	);
 }

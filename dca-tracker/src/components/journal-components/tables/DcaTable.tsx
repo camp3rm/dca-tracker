@@ -1,8 +1,14 @@
 import React from 'react';
 import '@/styles/table.scss';
 import TransactionRow from './TransactionRow';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/store';
 
 export default function DcaTable() {
+	const transaction = useSelector(
+		(state: RootState) => state.transaction.transaction
+	);
+
 	const mockedData = [
 		{
 			date: '2025-11-01',
@@ -64,10 +70,25 @@ export default function DcaTable() {
 					</tr>
 				</thead>
 				<tbody className="body">
-					{mockedData.map((item, index) => (
+					{mockedData.map((item, index: number) => (
 						<TransactionRow
-							key={index}
 							item={item}
+							key={index}
+							// key={item.id}
+							// item={{
+							// 	date: item.date,
+							// 	coin: item.cryptoName,
+							// 	invested: item.amountPurchased,
+							// 	amount: item.coinsNumber,
+							// 	buyPrice: item.purchasePrice,
+							// 	currentPrice: 0,
+							// 	avgEntry: 0,
+							// 	currentValue: 0,
+							// 	profit: 0,
+							// 	roi: 0,
+							// 	targets: { x3: 0, x5: 0, x10: 0 },
+							// 	risks: { x3: '', x5: '', x10: '' },
+							// }}
 						/>
 					))}
 				</tbody>

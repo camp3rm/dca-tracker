@@ -1,15 +1,19 @@
 'use client'
 import './transactionModal.scss';
-import DateInput from '@components/ui/DateInput/DateInput';
+import { v4 } from 'uuid';
+import DateInput from '@/components/ui/dateInput/DateInput';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch, RootState } from '@store/store';
 import { setTransaction } from '@store/transactionSlice';
 
+import { store } from '@/store/store';
+
 interface AddTransactionModalProps {
 	modal: () => void;
 }
 type FormData = {
+	id: string;
 	date: Date | null;
 	cryptoName: string;
 	amountPurchased: string;
@@ -22,7 +26,7 @@ export default function AddTransactionModal({
 }: AddTransactionModalProps) {
 	const dispatch = useDispatch<AppDispatch>();
 	const transaction = useSelector(
-		(state: RootState) => state.transaction.transactions
+		(state: RootState) => state.transaction.transaction
 	);
 
 	const {
@@ -33,6 +37,7 @@ export default function AddTransactionModal({
 		formState: { errors },
 	} = useForm<FormData>({
 		defaultValues: {
+			id: '',
 			date: null,
 			cryptoName: '',
 			amountPurchased: '',
@@ -44,17 +49,21 @@ export default function AddTransactionModal({
 	const onSubmit: SubmitHandler<FormData> = (data: FormData) => {
 		const transactionData = {
 			...data,
-			date: data.date ? data.date.toISOString() : new Date().toISOString(),
+			id: v4(),
+			date: data.date
+				? data.date.toLocaleDateString('uk-PL')
+				: new Date().toLocaleDateString('uk-PL'),
 			amountPurchased: Number(data.amountPurchased),
 			coinsNumber: Number(data.coinsNumber),
 			purchasePrice: Number(data.purchasePrice),
 		};
 
 		dispatch(setTransaction(transactionData));
-		console.log('Transaction added:', transactionData);
 		modal();
 		reset();
 	};
+	console.log(store.getState().transaction);
+
 	return (
 		<div
 			className="transaction-modal"
