@@ -1,3 +1,7 @@
+h1 {
+	text-align: center;
+}
+
 .wallet-analytics {
 	width: 100%;
 	display: grid;
@@ -6,7 +10,7 @@
 	place-items: center;
 
 	.kpi-container {
-		width: 100%;
+		width: 70%;
 		grid-row: 1/2;
 		margin: 25px 0;
 		display: grid;
@@ -16,7 +20,7 @@
 	}
 
 	.kpi-column {
-		width: 100%;
+		width: 80%;
 		display: grid;
 		grid-template-rows: auto auto;
 		align-items: start;
@@ -27,18 +31,18 @@
 		&__values {
 			height: 50px;
 			display: grid;
-			grid-template-columns: 25% 1fr;
+			grid-template-columns: 35% auto;
 			padding: 8px 12px;
-			place-content: center;
+			align-items: center;
 		}
 
 		&__label {
 			margin: 0;
 			font-size: 14px;
 			color: #aaa;
-			text-align: left;
 			white-space: nowrap;
 			align-self: center;
+			
 		}
 
 		&__value {
@@ -52,18 +56,12 @@
 
 	&__chart {
 		grid-row: 2/3;
-		height: 700px;
-		width: 700px;
+			width: 70%;
 		background-color: rgb(78, 78, 78);
 		border-radius: 12px;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-
-		.chart {
-			width: 100%;
-			display: grid;
-			place-content: center;
-		}
+		place-content: center center;
 
 		.quotient {
 			margin-left: 100px;

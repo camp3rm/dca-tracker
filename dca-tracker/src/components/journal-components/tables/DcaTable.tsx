@@ -1,5 +1,5 @@
 import React from 'react';
-import '@/styles/table.scss';
+import '../tables/table.scss';
 import TransactionRow from './TransactionRow';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
