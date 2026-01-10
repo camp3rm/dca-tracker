@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface TransactionState {
-  date: string;
-  cryptoName: string;
-  amountPurchased: number;
-  coinsNumber: number;
-  purchasePrice: number;
+	id: string;
+	date: string;
+	cryptoName: string;
+	amountPurchased: number;
+	coinsNumber: number;
+	purchasePrice: number;
 }
 
 interface TransactionsState {

@@ -28,7 +28,8 @@
 			"@store/*": ["./src/store/*"],
 			"@types/*": ["./src/types/*"],
 			"@mocks/*": ["./src/mocks/*"],
-			"@utils/*": ["./src/utils/*"]
+			"@utils/*": ["./src/utils/*"],
+			"@services/*": ["./src/services/*"]
 		}
   },
   "include": [
