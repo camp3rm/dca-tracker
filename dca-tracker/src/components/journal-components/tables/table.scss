@@ -1,107 +1,531 @@
-.dca-table {
-	width: 100%;
-	border-collapse: collapse;
-	border-spacing: 0;
-	table-layout: fixed;
-	.header {
-		position: sticky;
-		top: 0;
-		background: #111;
-		color: #fff;
-		&__row {
-			background-color: #1f2327;
+.dca-table-wrapper {
+	width: auto;
+	overflow-x: auto;
+	padding: 20px;
+	background: #0d1117;
+	border-radius: 8px;
+}
+
+.dca-table-empty {
+	text-align: center;
+	padding: 60px 20px;
+	background: #1f2327;
+	border-radius: 8px;
+	margin: 20px;
+
+	p {
+		font-size: 18px;
+		color: #8b949e;
+		margin: 0;
+	}
+}
+
+// Індикатор оновлення цін
+.price-update-indicator {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 12px;
+	background: #161b22;
+	border: 1px solid #30363d;
+	border-radius: 6px;
+	margin-bottom: 20px;
+	color: #58a6ff;
+	font-size: 14px;
+	font-weight: 500;
+
+	.loading-spinner {
+		width: 16px;
+		height: 16px;
+		border: 2px solid #30363d;
+		border-top-color: #58a6ff;
+		border-radius: 50%;
+		animation: spin 1s linear infinite;
+	}
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+// Статистика портфелю
+.portfolio-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 15px;
+	margin-bottom: 20px;
+
+	.stat-card {
+		background: #161b22;
+		border: 1px solid #30363d;
+		border-radius: 8px;
+		padding: 18px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(88, 166, 255, 0.1);
 		}
-		&__item {
-			align-items: center;
-			height: 40px;
-			border: 1px solid #ccc;
-			padding: 5px 10px;
-			font-weight: 500;
-			&--date {
-				justify-content: flex-end;
+
+		.stat-label {
+			font-size: 12px;
+			color: #8b949e;
+			text-transform: uppercase;
+			letter-spacing: 0.8px;
+			font-weight: 600;
+		}
+
+		.stat-value {
+			font-size: 26px;
+			font-weight: 700;
+			color: #c9d1d9;
+			font-family: 'Courier New', monospace;
+
+			&.positive {
+				color: #3fb950;
 			}
-			&--symbol {
-				justify-content: flex-start;
-			}
-			&--invested {
-				justify-content: flex-end;
-			}
-			&--amount {
-				justify-content: flex-end;
-			}
-			&--buy__price {
-				justify-content: center;
-			}
-			&--current__value {
-				justify-content: center;
-			}
-			&--average__entry {
-				justify-content: flex-end;
-			}
-			&--current__value {
-				justify-content: center;
-				font-weight: 600;
-			}
-			&--profit {
-				justify-content: center;
-			}
-			&--roi {
-				justify-content: center;
-			}
-			&--target__3x {
-				justify-content: center;
-			}
-			&--target__5x {
-				justify-content: center;
-			}
-			&--target__10x {
-				justify-content: center;
+
+			&.negative {
+				color: #f85149;
 			}
 		}
 	}
-	.body {
+}
+
+// Таблиця
+.dca-table {
+	width: 100%;
+	min-width: 1400px;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: auto;
+	background: #0d1117;
+
+	.header {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: #161b22;
+		color: #c9d1d9;
+
 		&__row {
-			background-color: #1f2327;
+			background-color: #161b22;
+			border-bottom: 2px solid #30363d;
 		}
 
 		&__item {
-			align-items: center;
-			height: 40px;
-			border: 1px solid #ccc;
-			padding: 5px 10px;
-			font-weight: 500;
-			
+			text-align: center;
+			height: 48px;
+			border: 1px solid #30363d;
+			padding: 12px;
+			font-weight: 600;
+			font-size: 12px;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			white-space: nowrap;
+			vertical-align: middle;
 
-			&--date,
-			&--invested,
-			&--amount {
-				justify-content: flex-end;
+			&--date {
+				text-align: right;
+				padding-right: 16px;
+				min-width: 110px;
 			}
 
 			&--symbol {
-				justify-content: flex-start;
+				text-align: left;
+				padding-left: 16px;
+				min-width: 100px;
+			}
+
+			&--invested {
+				text-align: right;
+				padding-right: 16px;
+				min-width: 120px;
+			}
+
+			&--amount {
+				text-align: right;
+				padding-right: 16px;
+				min-width: 140px;
 			}
 
 			&--buy__price,
-			&--current__price,
-			&--average__entry,
-			&--current__value,
-			&--profit,
-			&--target__3x,
-			&--target__5x,
-			&--target__10x {
-				justify-content: center;
+			&--current__price {
+				min-width: 130px;
+			}
+
+			&--current__value {
+				font-weight: 700;
+				min-width: 130px;
+			}
+
+			&--profit {
+				min-width: 110px;
 			}
 
 			&--roi {
-				justify-content: center;
+				min-width: 100px;
 			}
-												// &--positive {
-												// 	background-color: #16c784;
-												// }
-						
-												// &--negative {
-												// 	background-color: #ea3943;
+
+			&--target__3x,
+			&--target__5x,
+			&--target__10x {
+				min-width: 130px;
+			}
+		}
+	}
+
+	.body {
+		&__row {
+			background-color: #0d1117;
+			transition: background-color 0.2s ease;
+
+			&:hover {
+				background-color: #161b22;
+			}
+
+			&:nth-child(even) {
+				background-color: #0d1117;
+			}
+
+			&:nth-child(odd) {
+				background-color: #161b22;
+			}
+		}
+
+		&__item {
+			text-align: center;
+			height: 52px;
+			border: 1px solid #30363d;
+			padding: 10px 12px;
+			font-weight: 500;
+			font-size: 14px;
+			color: #c9d1d9;
+			vertical-align: middle;
+
+			&--date {
+				text-align: right;
+				padding-right: 16px;
+				color: #8b949e;
+				font-size: 13px;
+			}
+
+			&--symbol {
+				text-align: left;
+				padding-left: 16px;
+				font-weight: 600;
+				color: #58a6ff;
+				font-size: 16px;
+				position: relative;
+			}
+
+			&--invested,
+			&--amount {
+				text-align: right;
+				padding-right: 16px;
+				font-family: 'Courier New', monospace;
+			}
+
+			&--buy__price,
+			&--current__price {
+				text-align: center;
+				font-family: 'Courier New', monospace;
+				position: relative;
+				cursor: help;
+			}
+
+			&--current__price {
+				font-weight: 600;
+				color: #58a6ff;
+			}
+
+			&--current__value {
+				text-align: center;
+				font-weight: 600;
+				font-family: 'Courier New', monospace;
+				font-size: 15px;
+			}
+
+			&--profit {
+				text-align: center;
+				font-weight: 600;
+				font-family: 'Courier New', monospace;
+
+				&.positive {
+					color: #3fb950;
+					background-color: rgba(63, 185, 80, 0.1);
+				}
+
+				&.negative {
+					color: #f85149;
+					background-color: rgba(248, 81, 73, 0.1);
+				}
+			}
+
+			&--roi {
+				text-align: center;
+				font-weight: 700;
+				font-family: 'Courier New', monospace;
+				padding: 8px 12px;
+				border-radius: 4px;
+
+				&.positive {
+					color: #3fb950;
+					background-color: rgba(63, 185, 80, 0.15);
+				}
+
+				&.negative {
+					color: #f85149;
+					background-color: rgba(248, 81, 73, 0.15);
+				}
+			}
+
+			&--target__3x,
+			&--target__5x,
+			&--target__10x {
+				text-align: center;
+				font-family: 'Courier New', monospace;
+				color: #8b949e;
+				font-size: 13px;
+
+				.risk-badge {
+					display: inline-block;
+					padding: 3px 8px;
+					border-radius: 12px;
+					font-size: 10px;
+					font-weight: 600;
+					margin-left: 6px;
+					text-transform: uppercase;
+
+					&--low {
+						background-color: rgba(63, 185, 80, 0.2);
+						color: #3fb950;
+					}
+
+					&--medium {
+						background-color: rgba(255, 191, 0, 0.2);
+						color: #f0b429;
+					}
+
+					&--high {
+						background-color: rgba(248, 81, 73, 0.2);
+						color: #f85149;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Бейдж кількості транзакцій
+.transactions-badge {
+	display: inline-block;
+	margin-left: 8px;
+	padding: 3px 8px;
+	background: linear-gradient(135deg, #388bfd 0%, #2563eb 100%);
+	color: white;
+	border-radius: 12px;
+	font-size: 11px;
+	font-weight: 700;
+	vertical-align: middle;
+	box-shadow: 0 2px 4px rgba(56, 139, 253, 0.3);
+}
+
+// Tooltip для цін
+.price-tooltip {
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #1f2937;
+	border: 1px solid #30363d;
+	border-radius: 6px;
+	padding: 12px;
+	min-width: 160px;
+	z-index: 1000;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+	margin-bottom: 10px;
+	animation: fadeIn 0.2s ease;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		border: 6px solid transparent;
+		border-top-color: #1f2937;
+	}
+
+	.tooltip-header {
+		font-size: 11px;
+		color: #8b949e;
+		margin-bottom: 8px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.tooltip-price {
+		font-size: 13px;
+		color: #c9d1d9;
+		padding: 4px 0;
+		font-family: 'Courier New', monospace;
+		border-bottom: 1px solid #30363d;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateX(-50%) translateY(-5px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
+	}
+}
+
+// Responsive Design
+@media (max-width: 1400px) {
+	.dca-table-wrapper {
+		padding: 15px;
+	}
+
+	.portfolio-stats {
+		grid-template-columns: repeat(2, 1fr);
+
+		.stat-card {
+			padding: 14px;
+
+			.stat-value {
+				font-size: 22px;
+			}
+		}
+	}
+
+	.dca-table {
+		font-size: 13px;
+
+		.header__item,
+		.body__item {
+			padding: 8px 10px;
+			font-size: 12px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.dca-table-wrapper {
+		padding: 10px;
+	}
+
+	.portfolio-stats {
+		grid-template-columns: 1fr;
+		gap: 10px;
+
+		.stat-card {
+			padding: 12px;
+
+			.stat-label {
+				font-size: 11px;
+			}
+
+			.stat-value {
+				font-size: 20px;
+			}
+		}
+	}
+
+	.dca-table {
+		min-width: 1200px;
+
+		.header__item,
+		.body__item {
+			padding: 6px 8px;
+			font-size: 11px;
+		}
+
+		.body__item {
+			height: 44px;
+		}
+	}
+
+	.transactions-badge {
+		padding: 2px 6px;
+		font-size: 10px;
+		margin-left: 6px;
+	}
+}
+
+@media (max-width: 480px) {
+	.price-update-indicator {
+		padding: 8px;
+		font-size: 12px;
+
+		.loading-spinner {
+			width: 14px;
+			height: 14px;
+		}
+	}
+
+	.portfolio-stats {
+		.stat-card {
+			.stat-value {
+				font-size: 18px;
+			}
+		}
+	}
+}
+
+// Scrollbar styling
+.dca-table-wrapper::-webkit-scrollbar {
+	height: 8px;
+}
+
+.dca-table-wrapper::-webkit-scrollbar-track {
+	background: #0d1117;
+	border-radius: 4px;
+}
+
+.dca-table-wrapper::-webkit-scrollbar-thumb {
+	background: #30363d;
+	border-radius: 4px;
+
+	&:hover {
+		background: #484f58;
+	}
+}
+
+// Print styles
+@media print {
+	.dca-table-wrapper {
+		background: white;
+		padding: 0;
+	}
+
+	.price-update-indicator {
+		display: none;
+	}
+
+	.dca-table {
+		.header {
+			background: #f3f4f6;
+			color: #000;
+		}
+
+		.body__row {
+			background: white !important;
 		}
 	}
 }

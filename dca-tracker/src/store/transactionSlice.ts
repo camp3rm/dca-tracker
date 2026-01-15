@@ -1,6 +1,7 @@
+// src/store/transactionSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface TransactionState {
+export interface TransactionState {
 	id: string;
 	date: string;
 	cryptoName: string;
@@ -10,20 +11,31 @@ interface TransactionState {
 }
 
 interface TransactionsState {
-	transaction: TransactionState[];
+	transactions: TransactionState[];
 }
 
-const initialState: TransactionsState = { transaction: [] };
+const initialState: TransactionsState = {
+	transactions: [],
+};
 
 const transactionSlice = createSlice({
-	name: 'transactions',
+	name: 'transaction',
 	initialState,
 	reducers: {
 		setTransaction: (state, action: PayloadAction<TransactionState>) => {
-			state.transaction.push(action.payload);
+			state.transactions.push(action.payload);
+		},
+		removeTransaction: (state, action: PayloadAction<string>) => {
+			state.transactions = state.transactions.filter(
+				(t) => t.id !== action.payload
+			);
+		},
+		clearAllTransactions: (state) => {
+			state.transactions = [];
 		},
 	},
 });
 
-export const { setTransaction } = transactionSlice.actions;
+export const { setTransaction, removeTransaction, clearAllTransactions } =
+	transactionSlice.actions;
 export default transactionSlice.reducer;

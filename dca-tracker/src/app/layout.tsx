@@ -21,7 +21,9 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
 const toggleMenu = () => setIsMenuOpen(prev => !prev);
   return (
 		<Provider store={store}>
-			<html lang="en">
+			<html
+				lang="en"
+				suppressHydrationWarning>
 				<HeaderContext.Provider value={{ isMenuOpen, toggleMenu }}>
 					<body className="layout-wrapper">
 						<div className="layout-content">

@@ -1,0 +1,47 @@
+[
+  {
+    "asset": "BTC",
+    "symbol": "BTCUSDT",
+    "name": "Bitcoin"
+  },
+  {
+    "asset": "LINK",
+    "symbol": "LINKUSDT",
+    "name": "Chainlink"
+  },
+  {
+    "asset": "SOL",
+    "symbol": "SOLUSDT",
+    "name": "Solana"
+  },
+  {
+    "asset": "DOT",
+    "symbol": "DOTUSDT",
+    "name": "Polkadot"
+  },
+  {
+    "asset": "XRP",
+    "symbol": "XRPUSDT",
+    "name": "XRP"
+  },
+  {
+    "asset": "ADA",
+    "symbol": "ADAUSDT",
+    "name": "Cardano"
+  },
+  {
+    "asset": "ETH",
+    "symbol": "ETHUSDT",
+    "name": "Ethereum"
+  },
+  {
+    "asset": "AVAX",
+    "symbol": "AVAXUSDT",
+    "name": "Avalanche"
+  },
+  {
+    "asset": "WLD",
+    "symbol": "WLDUSDT",
+    "name": "Worldcoin"
+  }
+]

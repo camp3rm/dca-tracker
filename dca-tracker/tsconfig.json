@@ -29,7 +29,8 @@
 			"@types/*": ["./src/types/*"],
 			"@mocks/*": ["./src/mocks/*"],
 			"@utils/*": ["./src/utils/*"],
-			"@services/*": ["./src/services/*"]
+			"@services/*": ["./src/services/*"],
+			"@constants/*": ["./src/constants/*"]
 		}
   },
   "include": [
