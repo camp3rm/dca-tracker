@@ -10,16 +10,21 @@
 		width: 100%;
 		.nav-list {
 			display: grid;
-			grid-template-columns: repeat(6, auto);
+			grid-template-columns: repeat(5, auto);
 			.nav-list__item {
 				font-size: 20px;
+				margin: 0 auto;
 				height: 100%;
 				display: block;
 				width: fit-content;
-				color: $text-light;
 				list-style: none;
 				position: relative;
 				padding: 2px;
+
+				a {
+					color: white;
+					text-decoration: none;
+				}
 				&::after {
 					content: '';
 					position: absolute;
@@ -36,6 +41,11 @@
 				&:hover::after {
 					transform: scaleX(1);
 					transform-origin: left;
+
+				}
+
+				&:hover {
+					cursor: pointer;
 
 				}
 			}
