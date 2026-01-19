@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { DCASimulator } from '@/components/calculator/DCASimulator';
-import { FutureProfitCalculator } from '@/components/calculator/FutureProfitCalculator';
+import { FutureProfitCalculator } from '@/components/calculator/FutureProfitCalculator/FutureProfitCalculator';
 import { InvestmentGoalCalculator } from '@/components/calculator/InvestmentGoalCalculator';
 import { TargetCalculator } from '@/components/calculator/TargetCalculator';
 import { TabButton } from '@/components/ui/tabButton/TabButton';
