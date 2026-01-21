@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { DCASimulator } from '@/components/calculator/DCASimulator';
 import { FutureProfitCalculator } from '@/components/calculator/FutureProfitCalculator/FutureProfitCalculator';
-import { InvestmentGoalCalculator } from '@/components/calculator/InvestmentGoalCalculator';
-import { TargetCalculator } from '@/components/calculator/TargetCalculator';
+import { InvestmentGoalCalculator } from '@/components/calculator/InvestmentGoalCalculator/InvestmentGoalCalculator';
+import { TargetCalculator } from '@/components/calculator/TargetCalculator/TargetCalculator';
 import { TabButton } from '@/components/ui/tabButton/TabButton';
 import './calculator.scss';
 type CalculatorProps = {

@@ -1,35 +1,53 @@
 'use client';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ProfitCalculatorFormData } from '../types/index';
+import { GoalCalculatorFormData } from '../types/index';
 
-import { profitCalculatorSchema } from '../schemas/schema';
+import { goalCalculatorSchema } from '../schemas/schema';
 import { Input } from './Input';
 
-interface ProfitCalculatorFormProps {
-	onSubmit: (data: ProfitCalculatorFormData) => void;
+interface GoalCalculatorFormProps {
+	onSubmit: (data: GoalCalculatorFormData) => void;
 }
 
-export const ProfitCalculatorForm = ({
-	onSubmit,
-}: ProfitCalculatorFormProps) => {
+export const InvestmentGoalCalculatorForm = ({ onSubmit }: GoalCalculatorFormProps) => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<ProfitCalculatorFormData>({
-		resolver: zodResolver(profitCalculatorSchema),
+	} = useForm<GoalCalculatorFormData>({
+		resolver: zodResolver(goalCalculatorSchema),
 		defaultValues: {
+			goalAmount: 0,
 			currentPrice: 0,
-			amountOwned: 0,
 			targetMultiplier: '3x',
 		},
 	});
 
+
 	return (
 		<form
-			className="profit-calculator-form"
+			className="invest-calculator-form"
 			onSubmit={handleSubmit(onSubmit)}>
+			<div className="input-box">
+				<label>Goal Amount</label>
+				<Input
+					type="number"
+					step="0.1"
+					placeholder="Goal Amount"
+					className="goal-amount"
+					onFocus={(e) => {
+						if (e.target.value === '0') e.target.value = '';
+					}}
+					onBlur={(e) => {
+						if (e.target.value === '') e.target.value = '0';
+					}}
+					registration={register('goalAmount', { valueAsNumber: true })}
+				/>
+				{errors.goalAmount && (
+					<span className="error">{errors.goalAmount.message}</span>
+				)}
+			</div>
 			<div className="input-box">
 				<label>Current Price</label>
 				<Input
@@ -49,25 +67,7 @@ export const ProfitCalculatorForm = ({
 					<span className="error">{errors.currentPrice.message}</span>
 				)}
 			</div>
-			<div className="input-box">
-				<label>Amount Owned</label>
-				<Input
-					type="number"
-					step="0.00000001"
-					placeholder="Amount Owned"
-					className="amount-owned"
-					onFocus={(e) => {
-						if (e.target.value === '0') e.target.value = '';
-					}}
-					onBlur={(e) => {
-						if (e.target.value === '') e.target.value = '0';
-					}}
-					registration={register('amountOwned', { valueAsNumber: true })}
-				/>
-				{errors.amountOwned && (
-					<span className="error">{errors.amountOwned.message}</span>
-				)}
-			</div>
+
 			<select
 				className="target-multiplier"
 				{...register('targetMultiplier')}>
