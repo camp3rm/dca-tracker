@@ -8,4 +8,4 @@ export const targetCalculatorSchema = z.object({
 
 });
 
-export type ProfitCalculatorForm = z.infer<typeof targetCalculatorSchema>;
+export type TargetCalculatorForm = z.infer<typeof targetCalculatorSchema>;

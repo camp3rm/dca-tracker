@@ -15,17 +15,33 @@ export const InvestmentGoalCalculator = () => {
 
 	return (
 		<section className='invest-calculator'>
-					<h2>Feature Profit Calculator</h2>
+					<h2>Investment Goal Calculator</h2>
 					<InvestmentGoalCalculatorForm onSubmit={handleSubmit} />
 		
 					{/* {results && ( */}
 						<div className="results">
-							<p className='investment-value'>Investment Needed{ results && `: ${results.investmentNeeded.toFixed(2)}`}</p>
-							<p className='coins-needed'>Coins to Buy{ results && `: ${results.coinsNeeded.toFixed(2)}`}</p>
-							<p className='target-price'>Target Price{results && `: ${results.targetPrice.toFixed(2)}`}</p>
-							<p className='potential-profit'>Potential Profit{ results && `: ${results.potentialProfit.toFixed(2)}`}</p>
-		
-							{results && <button className='reset-btn' onClick={resetResults}>Reset</button> }
+							<div className='investment-value'>
+								<span>Investment Needed</span>
+								{results && <span className='value'>${results.investmentNeeded.toFixed(2)}</span>}
+							</div>
+							<div className='coins-needed'>
+								<span>Coins to Buy</span>
+								{results && <span className='value'>${results.coinsNeeded.toFixed(2)}</span>}
+							</div>
+							<div className='target-price'>
+								<span>Target Price</span>
+								{results && <span className='value'>${results.targetPrice.toFixed(2)}</span>}
+							</div>
+							<div className='potential-profit'>
+								<span>Potential Profit</span>
+								{results && <span className='value'>${results.potentialProfit.toFixed(2)}</span>}
+							</div>
+
+							{results && (
+								<button className='reset-btn' onClick={resetResults}>
+									Reset
+								</button>
+							)}
 						</div>
 					{/* )} */}
 				</section>

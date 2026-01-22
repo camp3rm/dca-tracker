@@ -24,9 +24,9 @@ export const useTargetCalculator = () => {
     const targetValue = data.amountOwned * data.targetPrice;
     const currentProfit = currentValue - investment;
     const targetProfit = targetValue - investment;
-    const currentROI = (currentProfit / investment) * 100;
-    const targetROI = (targetProfit / investment) * 100;
-    const percentToTarget = ((data.targetPrice - currentPrice) / currentPrice) * 100;
+    const currentROI = investment !== 0 ? (currentProfit / investment) * 100 : 0;
+    const targetROI = investment !== 0 ? (targetProfit / investment) * 100 : 0;
+    const percentToTarget = currentPrice !== 0 ? ((data.targetPrice - currentPrice) / currentPrice) * 100 : 0;
 
     setResults({
       currentPrice,

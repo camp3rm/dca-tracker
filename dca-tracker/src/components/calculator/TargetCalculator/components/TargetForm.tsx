@@ -2,7 +2,6 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { TargetCalculatorFormData } from '../types/index';
-import {useTargetCalculator} from '../hooks/useTargetCalculator'
 
 import { targetCalculatorSchema } from '../schemas/schema';
 import { Input } from './Input';
@@ -33,19 +32,19 @@ export const TargetCalculatorForm = ({
 
 	return (
 		<form
-			className="invest-calculator-form"
+			className="target-calculator-form"
 			onSubmit={handleSubmit(onSubmit)}>
 			<div className="input-box">
 				<label>Coin Symbol</label>
 				<select
 					style={{ width: '320px' }}
-					className="transaction-modal__input"
+					className="transaction-modal-input"
 					{...register('coinSymbol', {
 						required: 'Crypto name is required',
 					})}
 					onChange={(e) =>onCoinChange(e.target.value)}>
 					<option
-						className="transaction-modal__input"
+						className="transaction-modal-input"
 						value="">
 						Select coin
 					</option>
@@ -58,7 +57,7 @@ export const TargetCalculatorForm = ({
 					))}
 				</select>
 				{errors.coinSymbol && (
-					<span className="transaction-modal__error">
+					<span className="error">
 						{errors.coinSymbol.message}
 					</span>
 				)}

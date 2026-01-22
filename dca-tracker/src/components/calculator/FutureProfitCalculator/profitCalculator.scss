@@ -4,9 +4,8 @@
 	align-items: center;
 	width: 100%;
 	max-width: 500px;
-	height:fit-content;
-	border: 2px solid white;
-
+	height: fit-content;
+	border: 2px solid #30363d;
 	& h2 {
 		padding: 0;
 		margin: 15px 0;
@@ -18,7 +17,9 @@
 		max-width: 400px;
 		margin: 0 auto;
 		height: auto;
-		border: 1px solid green;
+		background: #161b22;
+		border: 1px solid #30363d;
+		border-radius: 8px;
 
 		& .input-box {
 			display: flex;
@@ -29,7 +30,6 @@
 			& label {
 				margin-bottom: 5px;
 			}
-
 
 			& input {
 				height: 35px;
@@ -47,8 +47,6 @@
 		}
 
 		& .target-multiplier {
-			height: 40px;
-
 			width: 50px;
 			height: 30px;
 			margin: 15px 0;
@@ -75,18 +73,33 @@
 		}
 	}
 	& .results {
-		width: 400px;
+		width: 480px;
 		display: grid;
 		grid-template-columns: repeat(2, auto);
 		grid-template-rows: repeat(3, auto);
+		margin: 15px 0;
 
 		& .current-value,
 		& .target-price,
 		& .future-value,
 		& .profit {
+			width: 70%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-self: center;
+			letter-spacing: 2px;
+			text-align: center;
+			width: 70%;
+			margin: 5px 0;
 			padding: 10px 20px;
-			justify-self: start;
-			border: 1px solid yellow;
+			font-size: 15px;
+			background: #0d1117;
+			border-radius: 8px;
+
+			& .value {
+				margin-top: 7px;
+			}
 		}
 
 		& .current-value {
@@ -104,6 +117,12 @@
 		& .profit {
 			grid-column: 2/3;
 			grid-row: 2/3;
+		}
+		& .positive .value {
+			color: #3fb950;
+		}
+		& .negative .value {
+			color: #f85149;
 		}
 		& .reset-btn {
 			margin: 0 auto;
