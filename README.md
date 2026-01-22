@@ -38,9 +38,6 @@ Visualized portfolio growth:
 - Investment vs. Current Value trends  
 - Historical performance tracking  
 
-### 🗒️ Notes / Plans
-Personal investment notes and future DCA planning area.
-
 ### 🧮 Profit Calculator
 Smart calculator that determines how many tokens to sell to:
 - Take profit  
