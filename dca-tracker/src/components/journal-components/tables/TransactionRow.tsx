@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo, useCallback } from 'react';
 
 interface TransactionRowProps {
 	item: {
@@ -20,8 +20,11 @@ interface TransactionRowProps {
 	};
 }
 
-export default function TransactionRow({ item }: TransactionRowProps) {
+const TransactionRow = memo(function TransactionRow({ item }: TransactionRowProps) {
 	const [showTooltip, setShowTooltip] = useState(false);
+
+	const handleMouseEnter = useCallback(() => setShowTooltip(true), []);
+	const handleMouseLeave = useCallback(() => setShowTooltip(false), []);
 
 	const formatCurrency = (value: number) => {
 		return `$${value.toFixed(2)}`;
@@ -52,8 +55,8 @@ export default function TransactionRow({ item }: TransactionRowProps) {
 			</td>
 			<td
 				className="body__item body__item--buy__price"
-				onMouseEnter={() => setShowTooltip(true)}
-				onMouseLeave={() => setShowTooltip(false)}
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}
 				style={{ position: 'relative' }}>
 				{formatCurrency(item.buyPrice)}
 				{showTooltip &&
@@ -109,4 +112,6 @@ export default function TransactionRow({ item }: TransactionRowProps) {
 			</td>
 		</tr>
 	);
-}
+});
+
+export default TransactionRow;

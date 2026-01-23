@@ -1,11 +1,32 @@
 'use client';
 import React, { useState } from 'react';
-import { DCASimulator } from '@/components/calculator/DCASimulator';
-import { FutureProfitCalculator } from '@/components/calculator/FutureProfitCalculator/FutureProfitCalculator';
-import { InvestmentGoalCalculator } from '@/components/calculator/InvestmentGoalCalculator/InvestmentGoalCalculator';
-import { TargetCalculator } from '@/components/calculator/TargetCalculator/TargetCalculator';
+import dynamic from 'next/dynamic';
 import { TabButton } from '@/components/ui/tabButton/TabButton';
 import './calculator.scss';
+
+const CalculatorSkeleton = () => (
+	<div className="calculator-skeleton">Loading...</div>
+);
+
+const DCASimulator = dynamic(
+	() => import('@/components/calculator/DCASimulator/DCASimulator').then(mod => mod.DCASimulator),
+	{ loading: () => <CalculatorSkeleton /> }
+);
+
+const FutureProfitCalculator = dynamic(
+	() => import('@/components/calculator/FutureProfitCalculator/FutureProfitCalculator').then(mod => mod.FutureProfitCalculator),
+	{ loading: () => <CalculatorSkeleton /> }
+);
+
+const InvestmentGoalCalculator = dynamic(
+	() => import('@/components/calculator/InvestmentGoalCalculator/InvestmentGoalCalculator').then(mod => mod.InvestmentGoalCalculator),
+	{ loading: () => <CalculatorSkeleton /> }
+);
+
+const TargetCalculator = dynamic(
+	() => import('@/components/calculator/TargetCalculator/TargetCalculator').then(mod => mod.TargetCalculator),
+	{ loading: () => <CalculatorSkeleton /> }
+);
 type CalculatorProps = {
 	title: string;
 };
