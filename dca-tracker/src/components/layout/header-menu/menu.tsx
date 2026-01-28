@@ -16,7 +16,7 @@ export default function Menu() {
 						<Link href="/performance">Performance</Link>
 					</li>
 					<li className="nav-list__item">
-						<Link href="/calculator">Calculator</Link>
+						<Link href="/calculator">Investment Tools</Link>
 					</li>
 				</ul>
 			</nav>

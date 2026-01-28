@@ -31,11 +31,11 @@ export const ProfitCalculatorForm = ({
 			className="profit-calculator-form"
 			onSubmit={handleSubmit(onSubmit)}>
 			<div className="input-box">
-				<label>Current Price</label>
+				<label>Current Price ($)</label>
 				<Input
 					type="number"
 					step="0.01"
-					placeholder="Current Price"
+					placeholder="e.g. 50000"
 					className="current-price"
 					onFocus={(e) => {
 						if (e.target.value === '0') e.target.value = '';
@@ -54,7 +54,7 @@ export const ProfitCalculatorForm = ({
 				<Input
 					type="number"
 					step="0.00000001"
-					placeholder="Amount Owned"
+					placeholder="e.g. 0.5"
 					className="amount-owned"
 					onFocus={(e) => {
 						if (e.target.value === '0') e.target.value = '';
@@ -68,6 +68,8 @@ export const ProfitCalculatorForm = ({
 					<span className="error">{errors.amountOwned.message}</span>
 				)}
 			</div>
+			<div className="input-box-multiplier">
+				<label>Target Multiplier</label>
 			<select
 				className="target-multiplier"
 				{...register('targetMultiplier')}>
@@ -76,6 +78,7 @@ export const ProfitCalculatorForm = ({
 				<option value="5x">5x</option>
 				<option value="10x">10x</option>
 			</select>
+			</div>
 			<button
 				className="calculate-button"
 				type="submit">

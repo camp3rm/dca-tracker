@@ -1,0 +1,209 @@
+{
+  "futureProfit": {
+    "title": "Future Profit Calculator",
+    "description": "Calculate your potential profit when your cryptocurrency reaches a target multiplier (2x, 3x, 5x, 10x). Perfect for planning your investment goals and understanding potential returns.",
+    
+    "inputs": {
+      "currentPrice": {
+        "label": "Current Price ($)",
+        "placeholder": "e.g. 50000",
+        "description": "The current market price of the cryptocurrency"
+      },
+      "amountOwned": {
+        "label": "Amount Owned",
+        "placeholder": "e.g. 0.5",
+        "description": "How many coins/tokens you currently own"
+      },
+      "targetMultiplier": {
+        "label": "Target Multiplier",
+        "description": "How many times you expect the price to multiply"
+      }
+    },
+    
+    "outputs": {
+      "currentValue": {
+        "label": "Current Value",
+        "description": "Your current portfolio value based on current price"
+      },
+      "targetPrice": {
+        "label": "Target Price",
+        "description": "The price when your target multiplier is reached"
+      },
+      "futureValue": {
+        "label": "Future Value",
+        "description": "Your portfolio value at target price"
+      },
+      "profit": {
+        "label": "Profit",
+        "description": "Total profit when target is reached"
+      },
+      "roi": {
+        "label": "ROI",
+        "description": "Return on Investment percentage"
+      }
+    }
+  },
+
+  "investmentGoal": {
+    "title": "Investment Goal Calculator",
+    "description": "Calculate how much you need to invest now to reach a specific financial goal. Enter your target amount and see the required investment to achieve it.",
+    
+    "inputs": {
+      "goalAmount": {
+        "label": "Goal Amount ($)",
+        "placeholder": "e.g. 10000",
+        "description": "The amount of money you want to earn"
+      },
+      "currentPrice": {
+        "label": "Current Price ($)",
+        "placeholder": "e.g. 50000",
+        "description": "The current market price of the cryptocurrency"
+      },
+      "targetMultiplier": {
+        "label": "Target Multiplier",
+        "description": "Expected price multiplier to reach your goal"
+      }
+    },
+    
+    "outputs": {
+      "investmentNeeded": {
+        "label": "Investment Needed",
+        "description": "How much money you need to invest now"
+      },
+      "coinsNeeded": {
+        "label": "Coins to Buy",
+        "description": "Number of coins you need to purchase"
+      },
+      "targetPrice": {
+        "label": "Target Price",
+        "description": "The price at which you'll reach your goal"
+      },
+      "potentialProfit": {
+        "label": "Potential Profit",
+        "description": "Your profit when the goal is reached"
+      }
+    }
+  },
+
+  "target": {
+    "title": "Target Calculator",
+    "description": "Analyze a specific cryptocurrency position with real-time prices from Binance. Track your current profit/loss and see how close you are to your target price.",
+    
+    "inputs": {
+      "coinSymbol": {
+        "label": "Coin Symbol",
+        "placeholder": "Select coin",
+        "description": "Choose the cryptocurrency you want to analyze"
+      },
+      "amountOwned": {
+        "label": "Amount Owned",
+        "placeholder": "e.g. 0.5",
+        "description": "How many coins you currently hold"
+      },
+      "averageEntry": {
+        "label": "Average Entry Price ($)",
+        "placeholder": "e.g. 45000",
+        "description": "Your average purchase price per coin"
+      },
+      "targetPrice": {
+        "label": "Target Price ($)",
+        "placeholder": "e.g. 100000",
+        "description": "Your desired sell price"
+      }
+    },
+    
+    "outputs": {
+      "currentPrice": {
+        "label": "Current Price",
+        "description": "Real-time price from Binance API"
+      },
+      "currentValue": {
+        "label": "Current Value",
+        "description": "Your position's current market value"
+      },
+      "investment": {
+        "label": "Investment",
+        "description": "Total amount you invested (average entry × amount)"
+      },
+      "targetValue": {
+        "label": "Target Value",
+        "description": "Your position value at target price"
+      },
+      "currentProfit": {
+        "label": "Current Profit/Loss",
+        "description": "Your unrealized profit or loss right now"
+      },
+      "targetProfit": {
+        "label": "Target Profit",
+        "description": "Expected profit when target price is reached"
+      },
+      "currentROI": {
+        "label": "Current ROI",
+        "description": "Your current return on investment percentage"
+      },
+      "targetROI": {
+        "label": "Target ROI",
+        "description": "Expected ROI at target price"
+      },
+      "percentToTarget": {
+        "label": "% to Target",
+        "description": "How much the price needs to increase to reach target"
+      }
+    }
+  },
+
+  "dcaSimulator": {
+    "title": "DCA Simulator",
+    "description": "Simulate Dollar Cost Averaging (DCA) strategy over time with compound interest. See month-by-month growth of your portfolio with regular investments.",
+    
+    "inputs": {
+      "initialInvestment": {
+        "label": "Initial Investment ($)",
+        "placeholder": "e.g. 1000",
+        "description": "Your starting investment amount"
+      },
+      "monthlyInvestment": {
+        "label": "Monthly Investment ($)",
+        "placeholder": "e.g. 100",
+        "description": "How much you'll invest each month"
+      },
+      "duration": {
+        "label": "Duration (months)",
+        "placeholder": "e.g. 12",
+        "description": "How many months you'll continue investing"
+      },
+      "expectedROI": {
+        "label": "Expected ROI (% per year)",
+        "placeholder": "e.g. 10",
+        "description": "Expected annual return percentage"
+      }
+    },
+    
+    "outputs": {
+      "finalInvested": {
+        "label": "Final Invested",
+        "description": "Total amount you invested over the period"
+      },
+      "finalValue": {
+        "label": "Final Value",
+        "description": "Your portfolio value at the end"
+      },
+      "totalProfit": {
+        "label": "Total Profit",
+        "description": "Total profit earned from compound growth"
+      },
+      "totalROI": {
+        "label": "Total ROI",
+        "description": "Overall return on investment percentage"
+      }
+    },
+    
+    "tableColumns": {
+      "month": "Investment period month number",
+      "totalInvested": "Cumulative amount invested up to this month",
+      "currentValue": "Portfolio value including compound interest",
+      "profit": "Profit at this point in time",
+      "roi": "Return percentage at this month"
+    }
+  }
+}

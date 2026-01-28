@@ -10,7 +10,9 @@ interface GoalCalculatorFormProps {
 	onSubmit: (data: GoalCalculatorFormData) => void;
 }
 
-export const InvestmentGoalCalculatorForm = ({ onSubmit }: GoalCalculatorFormProps) => {
+export const InvestmentGoalCalculatorForm = ({
+	onSubmit,
+}: GoalCalculatorFormProps) => {
 	const {
 		register,
 		handleSubmit,
@@ -23,7 +25,6 @@ export const InvestmentGoalCalculatorForm = ({ onSubmit }: GoalCalculatorFormPro
 			targetMultiplier: '3x',
 		},
 	});
-
 
 	return (
 		<form
@@ -67,15 +68,17 @@ export const InvestmentGoalCalculatorForm = ({ onSubmit }: GoalCalculatorFormPro
 					<span className="error">{errors.currentPrice.message}</span>
 				)}
 			</div>
-
-			<select
-				className="target-multiplier"
-				{...register('targetMultiplier')}>
-				<option value="2x">2x</option>
-				<option value="3x">3x</option>
-				<option value="5x">5x</option>
-				<option value="10x">10x</option>
-			</select>
+			<div className="input-box-multiplier">
+				<label>Target Multiplier</label>
+				<select
+					className="target-multiplier"
+					{...register('targetMultiplier')}>
+					<option value="2x">2x</option>
+					<option value="3x">3x</option>
+					<option value="5x">5x</option>
+					<option value="10x">10x</option>
+				</select>
+			</div>
 			<button
 				className="calculate-button"
 				type="submit">

@@ -1,9 +1,10 @@
 'use client';
+import Analytics from './analytics/page'
 
 export default function Home() {
 	return (
 		<main>
-			<h1>HELLO</h1>
+			<Analytics/>
 		</main>
 	);
 }

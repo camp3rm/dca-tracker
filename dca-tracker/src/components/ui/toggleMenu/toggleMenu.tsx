@@ -7,7 +7,7 @@ export const ToggleMenu = () => {
           <li className='nav-list__item'>DCA Journal</li>
           <li className='nav-list__item'>Analytics</li>
           <li className='nav-list__item'>Performance</li>
-          <li className='nav-list__item'>Calculator</li>
+          <li className='nav-list__item'>Investment Tools</li>
         </ul>
       </nav>
 		</div>

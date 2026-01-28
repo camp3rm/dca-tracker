@@ -19,7 +19,7 @@
     "react-dom": "19.2.0",
     "react-hook-form": "^7.66.0",
     "react-redux": "^9.2.0",
-    "recharts": "^3.5.0",
+    "recharts": "^3.7.0",
     "sass": "^1.93.3",
     "swr": "^2.3.8",
     "uuid": "^13.0.0",

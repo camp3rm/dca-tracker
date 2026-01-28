@@ -7,6 +7,6 @@ import {
 export default function CalculatorPage() {
 
 	return (
-			<Calculator title='Calculator'/>
+			<Calculator title='Investment Tools'/>
 	);
 }
