@@ -11,6 +11,9 @@ export const TargetCalculator = () => {
 	const {
 		results,
 		currentPrice,
+		error,
+		setError,
+		isLoading,
 		fetchCurrentPrice,
 		calculateTarget,
 		resetResults,
@@ -35,15 +38,36 @@ export const TargetCalculator = () => {
 						?
 					</button>
 				</div>
+
 				<TargetCalculatorForm
 					onCoinChange={fetchCurrentPrice}
 					onSubmit={handleSubmit}
 				/>
 
-				<div className="results">
+				{error && (
+					<div className="error-alert">
+						<span className="error-icon">⚠️</span>
+						<span className="error-message">{error}</span>
+						<button
+							className="error-close"
+							onClick={() => setError(null)}>
+							×
+						</button>
+					</div>
+				)}
+
+				{isLoading && (
+					<div className="loading-indicator">
+						<span className="spinner">⏳</span>
+						<span className="loading-text">Fetching current price...</span>
+					</div>
+				)}
+							<div className="results">
 					<div className="current-price">
 						<span>Current Price</span>
-						{results && <span className="value">${currentPrice.toFixed(2)}</span>}
+						{results && (
+							<span className="value">${currentPrice.toFixed(2)}</span>
+						)}
 					</div>
 					<div className="current-value">
 						<span>Current Value</span>
@@ -100,12 +124,16 @@ export const TargetCalculator = () => {
 					<div className="percent-to-target">
 						<span>% to Target</span>
 						{results && (
-							<span className="value">${results.percentToTarget.toFixed(2)}%</span>
+							<span className="value">
+								${results.percentToTarget.toFixed(2)}%
+							</span>
 						)}
 					</div>
 
 					{results && (
-						<button className="reset-btn" onClick={resetResults}>
+						<button
+							className="reset-btn"
+							onClick={resetResults}>
 							Reset
 						</button>
 					)}

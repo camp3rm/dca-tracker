@@ -5,10 +5,11 @@ import { DCASimulatorForm } from './components/DCASimulatorForm';
 import { DCASimulatorFormData } from './types/types';
 import { CalculatorInfo } from '../shared/CalculatorInfo';
 import './dcasomulator.scss';
+import '../errorAlert.scss'
 
 export const DCASimulator = () => {
 	const [showInfo, setShowInfo] = useState(false);
-	const { results, calculateDCA, resetResults } = useDCASimulator();
+	const { results, calculateDCA, resetResults, error, setError} = useDCASimulator();
 
 	const handleToggleInfo = () => {
 		setShowInfo((prev) => !prev);
@@ -29,7 +30,20 @@ export const DCASimulator = () => {
 						?
 					</button>
 				</div>
+
 				<DCASimulatorForm onSubmit={handleSubmit} />
+
+				{error && (
+					<div className="error-alert">
+						<span className="error-icon">⚠️</span>
+						<span className="error-message">{error}</span>
+						<button
+							className="error-close"
+							onClick={() => setError(null)}>
+							×
+						</button>
+					</div>
+				)}
 
 				<div className="results">
 					<div className="final-investment">

@@ -1,0 +1,169 @@
+.analytics-page {
+	padding: 40px 20px;
+	max-width: 1400px;
+	margin: 0 auto;
+
+	& .analytics-header {
+		text-align: center;
+		margin-bottom: 40px;
+
+		& h1 {
+			color: #c9d1d9;
+			font-size: 36px;
+			font-weight: 700;
+			margin: 0 0 12px 0;
+		}
+
+		& p {
+			color: #8b949e;
+			font-size: 16px;
+			margin: 0;
+		}
+	}
+
+	& .hero-section {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1.5fr 1fr;
+		gap: 24px;
+		margin: 0 auto;
+		margin-bottom: 32px;
+
+		& .pie-chart-container {
+			width: 100%;
+
+			& .portfolio-pie-chart {
+				width: 100%;
+
+				margin: 20px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				background-color: #161b22;
+				border-radius: 8px;
+				border: 1px solid #30363d;
+
+				& h3 {
+					text-align: center;
+				}
+
+				& .chart-container {
+					width: 400px;
+					height: 400px;
+				}
+
+				& .chart-legend {
+					display: grid;
+					grid-template-columns: repeat(3, 1fr);
+					gap: 10px;
+					padding: 15px 20px;
+					width: 100%;
+
+					& .legend-item {
+						width: 100%;
+						display: grid;
+						grid-template-columns: repeat(2, 1fr);
+						gap: 8px;
+
+						& .legend-color {
+							justify-self: flex-end;
+							width: 14px;
+							height: 14px;
+							border-radius: 3px;
+						}
+
+						& .legend-label {
+							justify-self: flex-start;
+							color: #c9d1d9;
+							font-size: 14px;
+						}
+					}
+				}
+			}
+
+			& .chart-empty {
+				& p {
+				}
+			}
+		}
+
+		& .stats-cards {
+			display: flex;
+			flex-direction: column;
+			padding: 20px;
+			gap: 20px;
+
+			& .investment-overview,
+			& .profit-overview {
+				& .overview-card {
+					& .card-icon {
+					}
+
+					& .card-content {
+						& h4 {
+						}
+
+						& .card-value {
+							&.positive {
+							}
+
+							&.negative {
+							}
+						}
+
+						& .card-change {
+							&.positive {
+							}
+
+							&.negative {
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	& .bar-chart-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-inline: 20px;
+
+		& .roi-bar-chart {
+			width: 100%;
+
+			& h3 {
+			}
+
+			& .chart-container {
+			}
+		}
+	}
+}
+
+// Responsive
+@media (max-width: 1024px) {
+	.analytics-page {
+		& .hero-section {
+			grid-template-columns: 1fr;
+
+			& .stats-cards {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 20px;
+			}
+		}
+	}
+}
+
+@media (max-width: 640px) {
+	.analytics-page {
+		& .hero-section {
+			& .stats-cards {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+}

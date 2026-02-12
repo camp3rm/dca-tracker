@@ -5,9 +5,11 @@ import { ProfitCalculatorForm } from '@components/calculator/FutureProfitCalcula
 import { ProfitCalculatorFormData } from '@components/calculator/FutureProfitCalculator/types/index';
 import { CalculatorInfo } from '../shared/CalculatorInfo';
 import './profitCalculator.scss';
+import '../errorAlert.scss'
+
 export const FutureProfitCalculator = () => {
 	const[showInfo, setShowInfo] = useState(false);
-	const { results, calculateProfit, resetResults } = useProfitCalculator();
+	const { results, calculateProfit, resetResults, error, setError } = useProfitCalculator();
 
 
 	const handleToggleInfo = () => {
@@ -25,7 +27,20 @@ export const FutureProfitCalculator = () => {
 					<button onClick={handleToggleInfo} className={`more-info ${showInfo ? 'active' : ''}`}>?
 					</button>
 				</div>
+
 				<ProfitCalculatorForm onSubmit={handleSubmit} />
+
+				{error && (
+					<div className="error-alert">
+						<span className="error-icon">⚠️</span>
+						<span className="error-message">{error}</span>
+						<button
+							className="error-close"
+							onClick={() => setError(null)}>
+							×
+						</button>
+					</div>
+				)}
 				<div className="results">
 					<div className="current-value">
 						<span>Current Value</span>

@@ -13,4 +13,5 @@ export interface ProfitCalculatorResults {
   targetPrice: number;
   futureValue: number;
   profit: number;
+  roi: number;
 }

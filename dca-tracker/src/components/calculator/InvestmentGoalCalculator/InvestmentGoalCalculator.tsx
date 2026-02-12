@@ -5,10 +5,12 @@ import { InvestmentGoalCalculatorForm } from '@components/calculator/InvestmentG
 import { GoalCalculatorFormData } from '@components/calculator/InvestmentGoalCalculator/types/index';
 import { CalculatorInfo } from '../shared/CalculatorInfo';
 import './goalCalculator.scss';
+import '../errorAlert.scss'
+
 
 export const InvestmentGoalCalculator = () => {
 	const [showInfo, setShowInfo] = useState(false);
-	const { results, calculateGoal, resetResults } = useInvestmentGoalCalculator();
+	const { results, calculateGoal, resetResults, error, setError } = useInvestmentGoalCalculator();
 
 	const handleToggleInfo = () => {
 		setShowInfo((prev) => !prev);
@@ -29,6 +31,19 @@ export const InvestmentGoalCalculator = () => {
 						?
 					</button>
 				</div>
+
+				{error && (
+        <div className="error-alert">
+          <span className="error-icon">⚠️</span>
+          <span className="error-message">{error}</span>
+          <button 
+            className="error-close" 
+            onClick={() => setError(null)}
+          >
+            ×
+          </button>
+        </div>
+      )}
 				<InvestmentGoalCalculatorForm onSubmit={handleSubmit} />
 
 				<div className="results">

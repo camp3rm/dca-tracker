@@ -12,7 +12,7 @@
 	& .calculator {
 		display: grid;
 		align-content: start;
-		height: auto;
+		height: fit-content;
 		justify-content: center;
 		width: fit-content;
 		padding: 0 15px;

@@ -11,7 +11,7 @@
 	& .calculator {
 		display: grid;
 		align-content: start;
-		height: auto;
+		height: fit-content;
 		justify-content: center;
 		width: fit-content;
 		padding: 0 15px;
@@ -56,14 +56,11 @@
 				&.active {
 					background: #388bfd;
 					color: #252535;
-
 				}
 			}
 		}
 
 		& .target-calculator-form {
-			grid-column: 1/2;
-			grid-row: 2/3;
 			width: 430px;
 			max-width: 400px;
 			margin: 0 auto;
@@ -151,9 +148,28 @@
 			}
 		}
 
+		& .loading-indicator {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			padding: 16px;
+			background: #161b22;
+			border: 1px solid #30363d;
+			border-radius: 8px;
+			margin-bottom: 20px;
+			color: #58a6ff;
+
+			.spinner {
+				animation: spin 1s linear infinite;
+			}
+		}
+		@keyframes spin {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
 		& .results {
-			grid-column: 1/2;
-			grid-row: 3/4;
 			width: 400px;
 			display: grid;
 			grid-template-columns: repeat(2, auto);
